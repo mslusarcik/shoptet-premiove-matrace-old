@@ -2,7 +2,7 @@
   justify-content: center;
   .benefitBanner__item {
     justify-content: flex-start;
-    @media (min-width: $breakpoint-xl){
+    @media (min-width: $breakpoint-xl) {
       flex: 1 1 18%;
       padding: 0 20px;
       .benefitBanner__title {
