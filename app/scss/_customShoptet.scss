@@ -1,0 +1,238 @@
+.news-item-detail .text {
+  padding-bottom: 40px;
+  border-bottom: 1px solid #bfa66f;
+  margin-bottom: 48px;
+}
+
+.id-984 .container {
+  margin-right: auto;
+  margin-left: 10px;
+
+}
+
+.fav-cat li img {
+  border-radius: 14%;
+  max-height: 100px;
+  width: auto;
+  margin: 0 auto;
+}
+
+.category-appendix {
+  display: none
+}
+
+.subcategories.with-image li a .image {
+  border-radius: 7%;
+}
+
+.flag.flag-gift {
+  background-color: rgba(201, 164, 93, 0.93);
+}
+
+@media screen and (min-width: 768px){
+.navigation-in > ul > li.ext > ul > li > a{display: block;}
+.navigation-in > ul > li.ext > ul > li > div{padding-left: 12px;}
+.navigation-in > ul > li.ext > ul > li:not(.has-third-level) > div > a {margin-bottom: 0;line-height: 22px;height: 64px;display: flex;align-items: center;}
+}
+
+.products-block.products .p .price strong, .products-block.products .p .price
+span {
+  font-size: 17px;
+
+}
+
+.btn.btn-ghost:hover, .btn.btn-primary, .btn.btn-secondary, .btn.btn-default, a.btn.btn-default {
+  border-color: #caa45c;
+}
+
+.btn.btn-ghost:hover, .btn.btn-primary, .btn.btn-secondary, .btn.btn-default, a.btn.btn-default {
+  background-color: #caa45c;
+}
+
+.btn.btn-primary, a.btn.btn-primary {
+  color: #fff;
+}
+
+.btn.btn-primary:hover, .btn.btn-secondary:hover, .btn.btn-default:hover, a.btn.btn-default:hover {
+  background-color: #000 !important;
+  border-color: #000;
+}
+  
+@media screen and (min-width: 1200px){
+.type-index #header {position: relative !important;top: 0 !important;}
+.type-index .top-navigation-bar {position: relative !important;top: 0 !important;background-color: #F5F5F5 !important;}
+.type-index .navigation-in > ul > li > a {color: #000;}
+.type-index .lupa, .type-index .top-nav-button::before {color: #000;}
+.type-index .menu-helper:not(:hover), .type-index .menu-helper:not(:hover) > span {color:#000;}
+.type-index .btn.cart-count::before, .type-index a.btn.cart-count::before, .type-index .btn.cart-count .cart-price {color: #000;}
+.type-index .navigation-buttons > a[data-target="cart"] i, .cart-count:not(.full)::after {background-color: #000;color: #fff;}
+.type-index .top-navigation-bar a, .type-index .dropdown button {color: #000;}
+.type-index .site-name img {-webkit-filter: none;filter: none;}
+.type-index .dropdown {border-color: #C4C4C4 !important;}
+.type-index .dropdown .caret::before {color: #000 !important;}
+.one-column-body .carousel-inner > .item.carousel-link a::before, .one-column-body .carousel-inner > .item:not(.carousel-link)::before {display: none;}
+}
+
+.products-block .price-save::before {
+  content: "Akce ";
+  display: none;
+}
+
+.site-msg.information {
+  background-image: linear-gradient(to bottom right, #aa9159, #6c592a);
+}
+
+.navigation-in > ul > li > a {
+  color: #fff;
+  padding: 33px 17px;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 0.875px;
+  position: relative;
+  transition: none;
+  font-size: 17px;
+}
+
+.benefitBanner__title {
+  font-size: 17px;
+  line-height: 1.3;
+  color: #000;
+  font-weight: 400;
+}
+
+.benefitBanner__content {
+  font-size: 13px;
+  line-height: 1.5;
+  color: #434343;
+  margin-top: 24px;
+}
+
+h4.homepage-group-title, .h4.homepage-group-title {
+  font-size: 22px;
+  text-align: center;
+}
+
+.flag.flag-freeshipping {
+  background-color: #000;
+  display: none;
+}
+
+.flag-custom3 {
+  background-color: #000;
+  display: none;
+}
+
+.flag.flag-discount {
+  background-color: #363a44;
+  color: #b9a274;
+  padding: 8.5px 8.5px;
+}
+
+#carousel::after {
+  content: "";
+  width: 100%;
+  height: 100px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, rgba(255,255,255,0) 0, rgb(0 0 0 / 37%));
+}
+
+.odber, #footer {
+  border-top: 80px solid #fff;
+  border-bottom: 1px solid #282d38;
+}
+
+.odber {
+  text-align: center;
+  padding: 48px 20px 62px 20px;
+  background-color: #141414;
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+.odber .form-group label.whole-width {
+  color: #fff;
+}
+
+.odber h4 {
+  color: #caa45c;
+}
+
+.odber .form-group label.whole-width, .odber .form-group label.whole-width a {
+  color: #9d9d9d;
+}
+
+#footer {
+  background-color: #141414;
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+.contact-box ul a {
+  font-size: 18px !important;
+  text-decoration: none !important;
+}
+
+#footer ul li {
+  line-height: 7px;
+  margin-bottom: 18px;
+  position: relative;
+}
+
+#footer .contact-box a, #footer .password-helper a, #footer .news-item-widget a, .sidebar .news-item-widget a, #footer ul
+a {
+  color: #caa45d;
+}
+
+#footer .contact-box ul li > span:not(.mail):not(.tel):not(.cellphone) a {
+  background-color: #2d2e32;
+}
+
+#footer .custom-footer > div h4 {
+  color: #fff;
+}
+
+#footer .custom-footer > div h4 {
+  font-size: 19px;
+  margin-bottom: 14px;
+  font-weight: 700;
+}
+
+#footer {
+  border-top: 1px solid #363a44 !important;
+}
+
+.custom-footer, .footer-bottom {
+  border-color: #363a44;
+}
+
+.copyright, #signature a {
+  color: #9d9d9d;
+}
+
+.siteCookies__form {
+  background-image: linear-gradient(to bottom right, #aa9159, #68552b);
+  color: black;
+  padding: 20px
+15px 25px 15px;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+}
+
+.siteCookies--bottom.siteCookies--scrolled {
+  left: 0;
+  width: 100%;
+  margin-left: 0;
+  background-color: transparent;
+}
+
+.news-item-detail ul li::before {
+  content: "";
+  border: 4px solid #caa45d;
+  background-color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  left: 0;
+  top: 0px;
+}

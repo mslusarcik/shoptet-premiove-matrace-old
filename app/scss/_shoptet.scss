@@ -1,0 +1,26 @@
+.content-wrapper {
+  background-color: #fff;
+
+  .container {
+    padding-left: 0;
+    padding-right: 0;
+    margin: 0 auto;
+  }
+}
+
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  @media (min-width: $breakpoint-md){
+    width: 742px;
+  }
+  @media (min-width: $breakpoint-lg){
+    width: 972px;
+  }
+  @media (min-width: $breakpoint-xl){
+    width: 1178px;
+  }
+  @media (min-width: $breakpoint-xxl){
+    width: 1418px;
+  }
+}
