@@ -13,82 +13,82 @@ const browsersync = require('browser-sync').create();
 
 // File paths
 const files = {
-	scssPath: 'app/scss/**/*.scss',
-	jsPath: 'app/js/**/*.js',
+  scssPath: 'app/scss/**/*.scss',
+  jsPath: 'app/js/**/*.js',
 };
 
 // Sass task: compiles the style.scss file into style.css
 function scssTask() {
-	return src(files.scssPath, { sourcemaps: true }) // set source and turn on sourcemaps
-		.pipe(sass()) // compile SCSS to CSS
-		.pipe(postcss([autoprefixer(), cssnano()])) // PostCSS plugins
-		.pipe(dest('dist', { sourcemaps: '.' })); // put final CSS in dist folder with sourcemap
+  return src(files.scssPath, { sourcemaps: true }) // set source and turn on sourcemaps
+    .pipe(sass()) // compile SCSS to CSS
+    .pipe(postcss([autoprefixer(), cssnano()])) // PostCSS plugins
+    .pipe(dest('dist', { sourcemaps: '.' })); // put final CSS in dist folder with sourcemap
 }
 
 // JS task: concatenates and uglifies JS files to script.js
 function jsTask() {
-	return src(
-		[
-			files.jsPath,
-			//,'!' + 'includes/js/jquery.min.js', // to exclude any specific files
-		],
-		{ sourcemaps: true }
-	)
-		.pipe(concat('main.js'))
-		.pipe(terser())
-		.pipe(dest('dist', { sourcemaps: '.' }));
+  return src(
+    [
+      files.jsPath,
+      //,'!' + 'includes/js/jquery.min.js', // to exclude any specific files
+    ],
+    { sourcemaps: true }
+  )
+    .pipe(concat('main.js'))
+    .pipe(terser())
+    .pipe(dest('dist', { sourcemaps: '.' }));
 }
 
 // Cachebust
 function cacheBustTask() {
-	var cbString = new Date().getTime();
-	return src(['index.html'])
-		.pipe(replace(/cb=\d+/g, 'cb=' + cbString))
-		.pipe(dest('.'));
+  var cbString = new Date().getTime();
+  return src(['index.html'])
+    .pipe(replace(/cb=\d+/g, 'cb=' + cbString))
+    .pipe(dest('.'));
 }
 
 // Browsersync to spin up a local server
 function browserSyncServe(cb) {
-	// initializes browsersync server
-	browsersync.init({
-		server: {
-			baseDir: '.',
-		},
-		notify: {
-			styles: {
-				top: 'auto',
-				bottom: '0',
-			},
-		},
-	});
-	cb();
+  // initializes browsersync server
+  browsersync.init({
+    server: {
+      baseDir: '.',
+    },
+    notify: {
+      styles: {
+        top: 'auto',
+        bottom: '0',
+      },
+    },
+  });
+  cb();
 }
 function browserSyncReload(cb) {
-	// reloads browsersync server
-	browsersync.reload();
-	cb();
+  // reloads browsersync server
+  browsersync.reload();
+  cb();
 }
 
 // Watch task: watch SCSS and JS files for changes
 // If any change, run scss and js tasks simultaneously
 function watchTask() {
-	watch(
-		[files.scssPath, files.jsPath],
-		{ interval: 1000, usePolling: true }, //Makes docker work
-		series(parallel(scssTask, jsTask), cacheBustTask)
-	);
+  watch(
+    [files.scssPath, files.jsPath],
+    { interval: 1000, usePolling: true }, //Makes docker work
+    series(parallel(scssTask, jsTask), cacheBustTask)
+  );
 }
 
 // Browsersync Watch task
 // Watch HTML file for change and reload browsersync server
 // watch SCSS and JS files for changes, run scss and js tasks simultaneously and update browsersync
 function bsWatchTask() {
-	watch('index.html', browserSyncReload);
-	watch(
-		[files.scssPath, files.jsPath],
-		{ interval: 1000, usePolling: true }, //Makes docker work
-		series(parallel(scssTask, jsTask), cacheBustTask, browserSyncReload)
-	);
+  watch('*.html', browserSyncReload);
+  watch(
+    [files.scssPath, files.jsPath],
+    { interval: 1000, usePolling: true }, //Makes docker work
+    series(parallel(scssTask, jsTask), cacheBustTask, browserSyncReload)
+  );
 }
 
 // Export the default Gulp task so it can be run
@@ -98,9 +98,4 @@ exports.default = series(parallel(scssTask, jsTask), cacheBustTask, watchTask);
 
 // Runs all of the above but also spins up a local Browsersync server
 // Run by typing in "gulp bs" on the command line
-exports.bs = series(
-	parallel(scssTask, jsTask),
-	cacheBustTask,
-	browserSyncServe,
-	bsWatchTask
-);
+exports.bs = series(parallel(scssTask, jsTask), cacheBustTask, browserSyncServe, bsWatchTask);
