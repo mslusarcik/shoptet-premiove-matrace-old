@@ -1,0 +1,173 @@
+.page-section {
+  padding: 65px 0;
+  position: relative;
+
+  &.introduction {
+    h1 {
+      font-size: 30px;
+      line-height: 37px;
+      text-align: center;
+      font-weight: 700;
+      @media (min-width: $breakpoint-lg) {
+        font-size: 45px;
+        line-height: 60px;
+      }
+    }
+
+    p {
+      font-weight: 300;
+      font-style: normal;
+      font-size: 18px;
+      text-align: center;
+      @media (min-width: $breakpoint-lg) {
+        font-size: 21px;
+      }
+    }
+  }
+
+  &.shopping-categories {
+    h2 {
+      font-size: 24px;
+      line-height: 32px;
+      text-align: center;
+      font-weight: 700;
+      @media (min-width: $breakpoint-lg) {
+        font-size: 30px;
+        line-height: 36px;
+      }
+
+      & + p {
+        font-weight: 300;
+        font-style: normal;
+        font-size: 15px;
+        text-align: center;
+      }
+    }
+
+    .categories-list {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      margin-top: 35px;
+      @media (min-width: $breakpoint-lg) {
+        justify-content: space-between;
+      }
+
+      .categories-item {
+        flex: 1 40%;
+        max-width: 40%;
+        text-align: center;
+        position: relative;
+        @media (min-width: $breakpoint-lg) {
+          flex: 1 16%;
+          max-width: 16%;
+          padding: 5px;
+        }
+
+        img {
+          @media (min-width: $breakpoint-lg) {
+            margin-bottom: 15px;
+          }
+        }
+
+        h3 {
+          font-weight: 700;
+          font-style: normal;
+          font-size: 15px;
+          margin-bottom: 10px;
+          color: #caa35c;
+        }
+
+        p {
+          font-size: 13px;
+          margin-bottom: 10px;
+          line-height: 23px;
+          color: #888;
+        }
+      }
+    }
+  }
+
+  &.bg-pseudo-grey::before {
+    content: '';
+    display: block;
+    position: absolute;
+    background-color: #f1f1f1;
+    z-index: 0;
+    top: 0;
+    left: -3500px;
+    width: 8000px;
+    height: 100%;
+  }
+
+  &.faq {
+    h2 {
+      font-size: 24px;
+      line-height: 32px;
+      text-align: left;
+      font-weight: 700;
+      margin-top: 40px;
+      @media (min-width: $breakpoint-lg) {
+        font-size: 30px;
+        line-height: 36px;
+      }
+    }
+
+    p {
+      font-weight: 300;
+      font-style: normal;
+      font-size: 15px;
+      text-align: left;
+      margin-bottom: 9px;
+    }
+  }
+
+  &.padding-sm {
+    padding: 25px 0;
+  }
+
+  &.padding-md {
+    padding: 40px 0;
+  }
+
+  &.padding-lg {
+    padding: 80px 0;
+  }
+
+  &.padding-xl {
+    padding: 105px 0;
+  }
+
+  &.pt-sm {
+    padding-top: 25px;
+  }
+
+  &.pt-md {
+    padding-top: 40px;
+  }
+
+  &.pt-lg {
+    padding-top: 80px;
+  }
+
+  &.pt-xl {
+    padding-top: 105px;
+  }
+
+  &.pb-sm {
+    padding-bottom: 25px;
+  }
+
+  &.pb-md {
+    padding-bottom: 40px;
+  }
+
+  &.pb-lg {
+    padding-bottom: 80px;
+  }
+
+  &.pb-xl {
+    padding-bottom: 105px;
+  }
+}
