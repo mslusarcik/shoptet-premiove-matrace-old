@@ -45,6 +45,8 @@
               margin-bottom: 2%;
               padding-left: 25px;
               padding-right: 25px;
+              padding-top: 10px;
+              padding-bottom: 10px;
               border-radius: 4px;
               background-color: #f9f9f9;
               border: 1px solid #eee;
@@ -71,6 +73,17 @@
                 color: #666;
               }
 
+              &.tile-detail-w-image {
+                padding-left: 95px;
+                position: relative;
+
+                img {
+                  position: absolute;
+                  left: 5px;
+                  max-width: 75px;
+                }
+              }
+
               &.featured {
                 position: relative;
                 margin-bottom: 25px;
@@ -82,11 +95,12 @@
               }
 
               &.featured::after {
-                content: "NEJOBLIBENEJSI";
+                content: "NEJOBLÍBENĚJŠÍ";
                 position: absolute;
                 bottom: -20px;
                 height: 20px;
-                width: 100.5%;
+                width: 101%;
+                width: 100.8%;
                 display: block;
                 background-color: #caa45c;
                 color: #fff;
@@ -94,8 +108,9 @@
                 line-height: 20px;
                 text-align: center;
                 font-weight: 600;
-                margin-left: -26px;
-                margin-right: -26px;
+                margin-left: -1px;
+                margin-right: -1px;
+                left: 0;
                 border-bottom-left-radius: 6px;
                 border-bottom-right-radius: 6px;
               }
@@ -146,6 +161,7 @@
         position: sticky;
         max-width: 300px;
         top: 25px;
+        margin-bottom: 25px;
       }
 
       h3 {
@@ -166,6 +182,12 @@
           color: #fff;
         }
       }
+
+      .support-info {
+        font-size: 10px;
+        line-height: 15px;
+        margin-top: 8px;
+      }
     }
   }
 }
@@ -176,7 +198,8 @@ body.sticky-header.sticky-active.sticky-visible {
   }
 }
 
-body.id-4062 .overall-wrapper {
+body.id-4062 .overall-wrapper,
+body.id-4092 .overall-wrapper {
   @media (min-width: $breakpoint-lg) {
     overflow: unset;
   }

@@ -14,29 +14,29 @@ function unSlick(targetObj) {
 }
 
 function handleMattressSelectionGuide() {
-
   var guideObject = jQuery('.mattress-selection-guide');
-  if(guideObject) {
-
+  if (guideObject) {
     guideObject.removeClass('hidden');
+    jQuery('#content-wrapper').css('overflow', 'visible');
     var tiles = jQuery('.tiles .tile-wrapper');
     var tileTypes = [];
-    
 
-    function setActiveBox(){
-      jQuery(tiles).each(function() {
+    function setActiveBox() {
+      jQuery(tiles).each(function () {
         var thus = this;
         tileTypes.push(jQuery(thus).data('type'));
-        jQuery(thus).find('.tile-list .tile-detail').click(function(){
-          jQuery(this).addClass('active');
-          jQuery(this).siblings().removeClass('active')
-          handleParams(jQuery(thus).data('type'), jQuery(this).data('param'))
-        });
+        jQuery(thus)
+          .find('.tile-list .tile-detail')
+          .click(function () {
+            jQuery(this).addClass('active');
+            jQuery(this).siblings().removeClass('active');
+            handleParams(jQuery(thus).data('type'), jQuery(this).data('param'));
+          });
       });
     }
   }
 
-  function handleParams(type, param){
+  function handleParams(type, param) {
     console.log(type);
     console.log(param);
     console.log(tileTypes);
@@ -44,44 +44,43 @@ function handleMattressSelectionGuide() {
     editButtonUrl();
   }
 
-  function editButtonUrl(){
+  function editButtonUrl() {
     var btnObj = jQuery('.btn-result');
     if (btnObj) {
       var paramsString = '';
       var i;
 
-      for (i = 0; i < tileTypes.length; ++i) {        
-        if(i === 0) {
+      for (i = 0; i < tileTypes.length; ++i) {
+        if (i === 0) {
           paramsString += '?' + sessionStorage.getItem(tileTypes[i]);
         } else {
           paramsString += '&' + sessionStorage.getItem(tileTypes[i]);
         }
       }
-      
-      jQuery(btnObj).attr('href', (btnObj).attr('href').split("?")[0] + paramsString);
+
+      jQuery(btnObj).attr('href', btnObj.attr('href').split('?')[0] + paramsString);
     }
   }
 
   setActiveBox();
-
 }
 
 function loadJS(FILE_URL, async = true, fileName) {
-  let scriptEle = document.createElement("script");
+  let scriptEle = document.createElement('script');
 
-  scriptEle.setAttribute("src", FILE_URL);
-  scriptEle.setAttribute("type", "text/javascript");
-  scriptEle.setAttribute("async", async);
+  scriptEle.setAttribute('src', FILE_URL);
+  scriptEle.setAttribute('type', 'text/javascript');
+  scriptEle.setAttribute('async', async);
 
   document.body.appendChild(scriptEle);
 
-  // success event 
-  scriptEle.addEventListener("load", () => {
-    console.warn(fileName + " has been loaded.");
+  // success event
+  scriptEle.addEventListener('load', () => {
+    console.warn(fileName + ' has been loaded.');
   });
-   // error event
-  scriptEle.addEventListener("error", (ev) => {
-    console.warn("Error on loading file called" + fileName, ev);
+  // error event
+  scriptEle.addEventListener('error', (ev) => {
+    console.warn('Error on loading file called' + fileName, ev);
   });
 }
 
@@ -93,7 +92,7 @@ $(function () {
       unSlick(jQuery('.fav-cat ul'));
     });
   }
-  if (jQuery('body').hasClass('id-4062')) {
+  if (jQuery('.mattress-selection-guide').length) {
     console.log('Mattress selection guide is working');
     handleMattressSelectionGuide();
   }
