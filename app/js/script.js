@@ -13,6 +13,13 @@ function unSlick(targetObj) {
   }
 }
 
+function activateCoupons(){
+  if (!jQuery('.discount-coupon').hasClass('otevreny')){
+    jQuery('.kupon-odkaz').click();
+  }
+}
+
+
 function handleMattressSelectionGuide() {
   var guideObject = jQuery('.mattress-selection-guide');
   if (guideObject) {
@@ -58,7 +65,7 @@ function handleMattressSelectionGuide() {
         }
       }
 
-      jQuery(btnObj).attr('href', btnObj.attr('href').split('?')[0] + paramsString);
+      jQuery(btnObj).attr('href', btnObj.attr('href').split('?')[0] + paramsString + '#products');
     }
   }
 
@@ -91,6 +98,9 @@ $(function () {
     $(window).resize(function () {
       unSlick(jQuery('.fav-cat ul'));
     });
+  }
+  if (jQuery('body').hasClass('in-kosik')) {
+    activateCoupons();
   }
   if (jQuery('.mattress-selection-guide').length) {
     console.log('Mattress selection guide is working');

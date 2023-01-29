@@ -1,0 +1,17 @@
+body.admin-logged:not(.in-kosik):not(.in-krok-1):not(.in-krok-2):not(.in-dekujeme) {
+  #header .search-form {
+    @media (min-width: $breakpoint-xl) {
+      visibility: visible;
+      opacity: 1;
+      right: 220%;
+    }
+    @media (min-width: $breakpoint-xxl) {
+      right: 520%;
+    }
+  }
+  .lupa::before {
+    @media (min-width: $breakpoint-xl) {
+      display: none;
+    }
+  }
+}

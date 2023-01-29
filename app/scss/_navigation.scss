@@ -1,0 +1,45 @@
+body.admin-logged {
+  #navigation {
+    @media (min-width: $breakpoint-xl) {
+      position: absolute;
+      width: 100%;
+      left: 0;
+      top: 75px;
+      height: 58px;
+      z-index: 1;
+    }
+
+    .navigation-in {
+      & > ul {
+        @media (min-width: $breakpoint-xl) {
+          margin-left: 35px;
+        }
+      }
+      & > ul > li > a {
+        @media (min-width: $breakpoint-xl) {
+          padding: 22px 17px;
+        }
+      }
+      & >ul > li:not(.exp) > a {
+        @media (max-width: $breakpoint-md) {
+          padding: 22px 17px;
+        }
+      }
+      ul.menu-level-1 > li:not(.exp) > a .submenu-arrow {
+        @media (max-width: $breakpoint-md) {
+          height: 66px;
+          line-height: 66px;
+        }
+      }
+    }
+  }
+}
+
+body.navigation-window-visible {
+  .lead-circle,
+  .lead-wrapper {
+    @media (max-width: $breakpoint-md) {
+      display: none;
+    }
+  }
+}

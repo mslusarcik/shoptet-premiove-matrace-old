@@ -1,0 +1,7 @@
+body.admin-logged {
+  .header-top {
+    @media (min-width: $breakpoint-xl) {
+      margin-bottom: 65px;
+    }
+  }
+}

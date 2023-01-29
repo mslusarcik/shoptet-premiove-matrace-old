@@ -1,0 +1,126 @@
+.type-product.id-768 {
+  .basic-description {
+    @media (min-width: $breakpoint-xl) {
+      padding-right: 0;
+    }
+    .popis-nadpis {
+      display: none;
+    }
+  }
+  .extended-description {
+    @media (min-width: $breakpoint-xl) {
+      width: 100%;
+      margin-top: 40px;
+    }
+    table {
+      background-color: #ffffff;
+      border-collapse: collapse !important;
+      border-width: 2px;
+      border-color: #caa45d63;
+      border-style: solid;
+      color: #000000;
+
+      td,
+      th {
+        border-width: 2px;
+        border-color: #caa45d63;
+        border-style: solid;
+      }
+    }
+  }
+  .shp-tabs-holder ul.shp-tabs {
+    justify-content: center;
+  }
+  .desc-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px 0;
+    @media (min-width: $breakpoint-lg) {
+      flex-direction: row;
+      padding: 40px 0;
+    }
+
+    &:last-child {
+      padding-bottom: 0;
+    }
+
+    &::before {
+      display: none;
+    }
+
+    & + .desc-section {
+      padding-top: 0;
+    }
+
+    & > div {
+      align-self: flex-start;
+      @media (min-width: $breakpoint-lg) {
+        align-self: center;
+      }
+      @media (max-width: $breakpoint-md) {
+        display: flex;
+        flex-direction: column;
+        order: 2;
+      }
+    }
+
+    & > .image-wrapper {
+      @media (max-width: $breakpoint-md) {
+        order: 1;
+      }
+    }
+
+    img {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 20px;
+      margin-bottom: 12px;
+      @media (min-width: $breakpoint-lg) {
+        margin-top: 30px;
+        margin-bottom: 30px;
+      }
+    }
+
+    .iframe-wrapper {
+      display: flex;
+      justify-content: center;
+    }
+
+    iframe {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+
+    h3,
+    h4,
+    h5 {
+      @media (max-width: $breakpoint-md) {
+        margin-top: 10px;
+      }
+    }
+
+    p {
+      @media (max-width: $breakpoint-md) {
+        margin-bottom: 16px;
+      }
+    }
+  }
+  .overall-wrapper {
+    background-color: transparent;
+  }
+  .content-wrapper.container {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+  }
+  .container.breadcrumbs-wrapper {
+    margin-bottom: 0;
+  }
+  &.one-column-body .shp-tabs-wrapper > .row > div:not(.shp-tabs-row)::before {
+    background-color: #fff;
+  }
+}
