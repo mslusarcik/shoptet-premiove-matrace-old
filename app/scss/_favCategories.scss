@@ -66,7 +66,7 @@ body.type-index .content-wrapper {
         left: -1px !important;
         position: absolute;
         border: 1px solid #c5cdd9;
-        z-index: 1;
+        z-index: 0;
         margin-left: 0 !important;
         line-height: unset !important;
       }
@@ -80,7 +80,7 @@ body.type-index .content-wrapper {
           content: "";
           border: 1px solid #caa35c;
           height: calc(100% + 1px) !important;
-          z-index: 2;
+          z-index: 1;
         }
 
         a {
@@ -90,7 +90,7 @@ body.type-index .content-wrapper {
       }
 
       a.menu-image {
-        z-index: 10;
+        z-index: 1;
       }
     }
   }
