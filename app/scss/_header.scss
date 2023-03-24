@@ -1,4 +1,4 @@
-body.admin-logged {
+body:not(.in-krok-1):not(.in-krok-2):not(.in-dekujeme) {
   .header-top {
     @media (min-width: $breakpoint-xl) {
       margin-bottom: 65px;

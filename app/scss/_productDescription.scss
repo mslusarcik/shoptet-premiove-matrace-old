@@ -1,4 +1,4 @@
-.type-product.id-768 {
+.type-product {
   .basic-description {
     @media (min-width: $breakpoint-xl) {
       padding-right: 0;
@@ -10,21 +10,57 @@
   .extended-description {
     @media (min-width: $breakpoint-xl) {
       width: 100%;
+      max-width: 50%;
       margin-top: 40px;
+      padding-left: 25px;
     }
-    table {
+    table.detail-parameters {
       background-color: #ffffff;
-      border-collapse: collapse !important;
-      border-width: 2px;
-      border-color: #caa45d63;
-      border-style: solid;
       color: #000000;
-
-      td,
-      th {
+      @media (min-width: $breakpoint-xl) {
+        width: 100%;
+        border-collapse: collapse !important;
         border-width: 2px;
         border-color: #caa45d63;
         border-style: solid;
+      }
+
+      th, 
+      td {
+        padding: 2px;
+        @media (min-width: $breakpoint-xl) {
+          border-width: 2px;
+          border-color: #caa45d63;
+          border-style: solid;
+          padding: 8px;
+        }
+      }
+    }
+
+    & > h3 {
+      @media (min-width: $breakpoint-xl) {
+        position: relative;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+      }
+
+      &.active::after {
+        @media (min-width: $breakpoint-xl) {
+          transform: rotate(180deg);
+        }
+      }
+
+      &::after {
+        @media (min-width: $breakpoint-xl) {
+          content: '\eab9';
+          font-family: 'IcoFont';
+          font-size: 24px;
+          position: absolute;
+          right: 0;
+          transform: rotate(0deg);
+          transition: transform .2s ease-in-out;
+        }
       }
     }
   }
@@ -45,7 +81,8 @@
       padding-bottom: 0;
     }
 
-    &::before {
+    &::before,
+    &::after {
       display: none;
     }
 

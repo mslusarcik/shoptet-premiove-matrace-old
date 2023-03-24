@@ -1,17 +1,41 @@
-body.admin-logged:not(.in-kosik):not(.in-krok-1):not(.in-krok-2):not(.in-dekujeme) {
+body:not(.in-kosik):not(.in-krok-1):not(.in-krok-2):not(.in-dekujeme) {
   #header .search-form {
     @media (min-width: $breakpoint-xl) {
+      position: relative;
       visibility: visible;
       opacity: 1;
-      right: 220%;
+      right: 0;
+      top: 0;
+      width: 480px;
     }
-    @media (min-width: $breakpoint-xxl) {
-      right: 520%;
+
+    .search-input {
+      @media (min-width: $breakpoint-xl) {
+        border-radius: 4px;
+      }
+    }
+
+    .search-whisperer.active {
+      @media (min-width: $breakpoint-xl) {
+        margin-left: -190px;
+      }
     }
   }
-  .lupa::before {
+  .lupa {
     @media (min-width: $breakpoint-xl) {
-      display: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      left: 30%;
+      right: 30%;
+      width: 40%;
+    }
+
+    &::before {
+      @media (min-width: $breakpoint-xl) {
+        display: none;
+      }
     }
   }
 }
