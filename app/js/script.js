@@ -13,12 +13,11 @@ function unSlick(targetObj) {
   }
 }
 
-function activateCoupons(){
-  if (!jQuery('.discount-coupon').hasClass('otevreny')){
+function activateCoupons() {
+  if (!jQuery('.discount-coupon').hasClass('otevreny')) {
     jQuery('.kupon-odkaz').click();
   }
 }
-
 
 function handleMattressSelectionGuide() {
   var guideObject = jQuery('.mattress-selection-guide');
@@ -72,6 +71,21 @@ function handleMattressSelectionGuide() {
   setActiveBox();
 }
 
+function makeDetailParametersCollapsible() {
+  var extendedDescriptionObj = jQuery('.extended-description');
+  // Set default toggle
+  jQuery(extendedDescriptionObj).find('.detail-parameters').fadeToggle();
+
+  // Set toggle on click
+  jQuery(extendedDescriptionObj)
+    .find('> h3')
+    .click(function (e) {
+      e.preventDefault();
+      jQuery(this).toggleClass('active');
+      jQuery(extendedDescriptionObj).find('.detail-parameters').fadeToggle();
+    });
+}
+
 function loadJS(FILE_URL, async = true, fileName) {
   let scriptEle = document.createElement('script');
 
@@ -91,6 +105,33 @@ function loadJS(FILE_URL, async = true, fileName) {
   });
 }
 
+function setCustomBodyClass() {
+  if (jQuery('input[name=priceId]').val() == 22605 && jQuery('body').hasClass('admin-logged')) {
+    jQuery('body').addClass('price-id-22605');
+    makeDetailParametersCollapsible();
+  }
+}
+
+function elementLoaded(el, cb) {
+  if (jQuery(el).length) {
+    // Element is now loaded.
+    cb(jQuery(el));
+  } else {
+    // Repeat every 250ms.
+    setTimeout(function () {
+      elementLoaded(el, cb);
+    }, 250);
+  }
+}
+
+function moveEl(target, el) {
+  console.log('moveEl is running.');
+  if (jQuery(el).length && jQuery(target).length) {
+    console.log('Element or target has been found.');
+    jQuery(el).insertAfter(target);
+  } else console.log('Element or target hasnt been found!');
+}
+
 $(function () {
   if (jQuery('body').hasClass('type-index')) {
     addHeadlineForFavCats();
@@ -99,8 +140,24 @@ $(function () {
       unSlick(jQuery('.fav-cat ul'));
     });
   }
+  if (jQuery('body').hasClass('type-product')) {
+    makeDetailParametersCollapsible();
+  }
   if (jQuery('body').hasClass('in-kosik')) {
     activateCoupons();
+  }
+  if (jQuery('body').hasClass('in-krok-1')) {
+    console.log('in-krok-1 found');
+    elementLoaded('#HcCalculater', function (elm) {
+      console.log('Homecredit button loaded');
+      moveEl(jQuery('#billingId-114 + label .shipping-billing-name'), jQuery(elm));
+    });
+  }
+  if (jQuery('body').hasClass('type-product')) {
+    setCustomBodyClass();
+    if (jQuery(window).width() < 768) {
+      moveEl(jQuery('.buy-box .bottom'), jQuery('#HcCalculater'));
+    }
   }
   if (jQuery('.mattress-selection-guide').length) {
     console.log('Mattress selection guide is working');
