@@ -27,8 +27,30 @@
     background-color: #caa35c;
     color: #fff;
 
+    a {
+      color: #fff;
+      text-decoration: underline;
+
+      &:hover,
+      &:focus {
+        color: #f4f4f4;
+
+      }
+    }
+
     strong {
       color: #fff;
+    }
+  }
+
+  .alert-icon {
+    max-width: 50px;
+    padding-bottom: 20px;
+    @media (min-width: $breakpoint-lg) {
+      max-width: unset;
+      padding-right: 20px;
+      padding-bottom: 0;
+      max-height: 35px;
     }
   }
 
