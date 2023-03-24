@@ -1,0 +1,49 @@
+#HcCalculater {
+  background: transparent !important;
+  color: #dd0424 !important;
+  text-decoration: underline !important;
+  padding: 0 !important;
+  padding-top: 4px !important;
+  font-size: 13px !important;
+  margin: 0 !important;
+  height: auto !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+body {
+  &.in-krok-1 {
+    #HcCalculater {
+      padding: 0 !important;
+      padding-top: 2px !important;
+    }
+  }
+  &.type-detail {
+    #HcCalculater {
+      padding-top: 5px !important;
+      font-size: 14px !important;
+      justify-content: center !important;
+      width: 100% !important;
+      @media (min-width: $breakpoint-md) {
+        padding-top: 4px !important;
+        font-size: 13px !important;
+        width: auto !important;
+        justify-content: flex-start !important;
+      }
+      &::before {
+        content: "";
+        display: inline-block !important;
+        width: 30px !important;
+        height: 30px !important;
+        background: url("https://shoptet.slusarcik.cz/user/documents/scripts/premiove-matrace/public/images/homecredit-logo.png") !important;
+        background-position: center !important;
+        background-size: cover !important;
+        margin-right: 6px !important;
+      }
+    }
+  }
+}
+
+a[href="https://shoptet-plugin.homecredit.cz/Home/Gdpr?language=cs"] {
+  display: none;
+}
