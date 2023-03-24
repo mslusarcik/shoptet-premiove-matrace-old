@@ -1,4 +1,10 @@
-body.admin-logged {
+body {
+  .menu-helper {
+    @media (min-width: $breakpoint-xl) {
+      visibility: hidden !important;
+    }
+  }
+
   #navigation {
     @media (min-width: $breakpoint-xl) {
       position: absolute;
@@ -13,6 +19,13 @@ body.admin-logged {
       & > ul {
         @media (min-width: $breakpoint-xl) {
           margin-left: 35px;
+          width: 80%;
+        }
+
+        & > li.splitted {
+          @media (min-width: $breakpoint-xl) {
+            visibility: visible;
+          }
         }
       }
       & > ul > li > a {
