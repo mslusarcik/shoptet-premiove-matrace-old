@@ -1,0 +1,29 @@
+.news-item {
+  .text {
+    @media (min-width: $breakpoint-lg) {
+      position: relative !important;
+      background-color: #F5F5F5;
+      right: auto;
+      bottom: auto !important;
+      width: 100% !important;
+      text-align: center;
+    }
+  }
+}
+.news-item-detail {
+  .text {
+    padding-bottom: 40px;
+    border-bottom: 1px solid #bfa66f;
+    margin-bottom: 48px;
+  }
+
+  ul li::before {
+    content: "";
+    border: 4px solid #caa45d;
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    top: 0px;
+  }
+}
