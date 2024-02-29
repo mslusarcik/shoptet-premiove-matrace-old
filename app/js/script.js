@@ -113,14 +113,19 @@ function setCustomBodyClass() {
 }
 
 function elementLoaded(el, cb) {
+  var maxAttempts = 15;
+  var currAttempts = 0;
   if (jQuery(el).length) {
     // Element is now loaded.
     cb(jQuery(el));
   } else {
     // Repeat every 250ms.
-    setTimeout(function () {
-      elementLoaded(el, cb);
-    }, 250);
+    if (currAttempts <= maxAttempts) {
+      setTimeout(function () {
+        currAttempts++;
+        elementLoaded(el, cb);
+      }, 250);
+    }
   }
 }
 
@@ -130,6 +135,71 @@ function moveEl(target, el) {
     console.log('Element or target has been found.');
     jQuery(el).insertAfter(target);
   } else console.log('Element or target hasnt been found!');
+}
+
+function handleRatingsPage() {
+  var ratingsObj = ratingsSetup;
+  var mobileBanner = false;
+  const target = jQuery('main#content');
+
+  function showDescription() {
+    if (ratingsObj.description !== '') {
+      let descriptionHtml = `<p>${ratingsObj.description}</p>`;
+      jQuery(descriptionHtml).insertAfter(jQuery(target).find('.content-inner > h1'));
+    } else {
+      console.warn('Description is empty.');
+    }
+  }
+
+  function showBanner(bannerURL) {
+    if (ratingsObj.bannerImg !== '') {
+      const target = jQuery('main#content');
+      let bannerHtml = `<img src="${bannerURL}" class="ratings-banner">`;
+      if (ratingsObj.bannerLink !== '') {
+        bannerHtml = `<a href="${ratingsObj.bannerLink}">${bannerHtml}</a>`;
+      }
+      jQuery(target).prepend(bannerHtml);
+    } else {
+      console.warn('Banner URL is empty.');
+    }
+  }
+
+  if (Object.keys(ratingsObj).length && ratingsObj.status === 'on') {
+    showDescription();
+    if (window.matchMedia('(max-width: 767px)').matches && ratingsObj.bannerMobImg !== '') {
+      showBanner(ratingsObj.bannerMobImg);
+    } else {
+      showBanner(ratingsObj.bannerImg);
+    }
+  } else {
+    console.warn('Edit of ratings page has been turned off');
+  }
+}
+
+function handleFaqs() {
+  const questionWrapper = jQuery('.question-wrapper');
+  questionWrapper.click(function () {
+    var container = jQuery(this).parents('.accordion');
+    var answer = container.find('.answer-wrapper');
+    var trigger = container.find('.submenu-arrow');
+    var state = container.find('.question-wrapper');
+
+    answer.animate({ height: 'toggle' }, 100);
+
+    if (trigger.hasClass('icon-expend')) {
+      trigger.removeClass('icon-expend');
+      // state.removeClass("active");
+    } else {
+      trigger.addClass('icon-expend');
+      // state.addClass("active");
+    }
+
+    if (container.hasClass('expanded')) {
+      container.removeClass('expanded');
+    } else {
+      container.addClass('expanded');
+    }
+  });
 }
 
 $(function () {
@@ -146,6 +216,9 @@ $(function () {
   if (jQuery('body').hasClass('in-kosik')) {
     activateCoupons();
   }
+  if (jQuery('body').hasClass('in-hodnoceni-obchodu')) {
+    handleRatingsPage();
+  }
   if (jQuery('body').hasClass('in-krok-1')) {
     console.log('in-krok-1 found');
     elementLoaded('#HcCalculater', function (elm) {
@@ -155,6 +228,11 @@ $(function () {
   }
   if (jQuery('body').hasClass('type-product')) {
     setCustomBodyClass();
+    elementLoaded('.p-gift', function () {
+      console.log('Gift button exists');
+      jQuery('body').addClass('has-gift');
+      //jQuery('.p-gift-image').clone().appendTo('.product-top .p-image-wrapper');
+    });
     if (jQuery(window).width() < 768) {
       moveEl(jQuery('.buy-box .bottom'), jQuery('#HcCalculater'));
     }
@@ -163,4 +241,5 @@ $(function () {
     console.log('Mattress selection guide is working');
     handleMattressSelectionGuide();
   }
+  handleFaqs();
 });

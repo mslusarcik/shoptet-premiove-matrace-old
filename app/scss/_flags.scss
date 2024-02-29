@@ -1,0 +1,81 @@
+body {
+  .products-block {
+    .flags-default {
+      display: grid;
+      grid-gap: 6px;
+      grid-auto-flow: row;
+      grid-template-columns: auto;
+      justify-content: flex-start;
+      align-content: flex-start;
+      width: 100%;
+      height: 100%;
+      @media (min-width: $breakpoint-md) {
+        grid-template-columns: auto auto;
+      }
+      .flag {
+        color: #222;
+        box-shadow: 0 8px 16px rgba(30, 30, 28, 0.16);
+        background-color: #fff !important;
+        max-height: 20px;
+        max-width: max-content;
+        @media (min-width: $breakpoint-md) {
+          max-height: 24px;
+        }
+
+        &.flag-akce-10,
+        &.flag-akce-10-,
+        &.flag-gift {
+          display: block;
+          position: absolute;
+          bottom: 0;
+          background-size: contain;
+          height: 40px;
+          width: 40px;
+          max-width: unset;
+          max-height: unset;
+          background-color: transparent !important;
+          box-shadow: none;
+          font-size: 0px;
+          @media (min-width: $breakpoint-lg) {
+            height: 55px;
+            width: 55px;
+          }
+        }
+
+        &.flag-akce-10,
+        &.flag-akce-10- {
+          right: 45px;
+          background-image: url('https://www.premiove-matrace.cz/user/documents/upload/sale10.png');
+          @media (min-width: $breakpoint-lg) {
+            right: 61px;
+          }
+        }
+
+        &.flag-gift {
+          right: 0;
+          background-image: url('https://www.premiove-matrace.cz/user/documents/upload/gift-1.png');
+        }
+      }
+    }
+    .p-in {
+      .widget-parameter-wrapper {
+        display: none;
+      }
+    }
+  }
+}
+
+body.type-product {
+  .flags-default {
+    .flag-akce-10-,
+    .flag-akce-10,
+    .flag-gift {
+      display: none;
+    }
+    .flag {
+      color: #222;
+      box-shadow: 0 8px 16px rgba(30, 30, 28, 0.16);
+      background-color: #fff !important;
+    }
+  }
+}

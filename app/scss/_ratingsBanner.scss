@@ -1,0 +1,101 @@
+.ratings-banner {
+  width: 100%;
+  background-color: #f6f6f6;
+  padding: 45px 15px;
+
+  &.w-background {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1440' height='560' preserveAspectRatio='none'%3E%3Cg mask='url(%26quot;%23a%26quot;)' fill='none'%3E%3Cpath fill='rgba(167, 128, 55, 1)' d='M0 0h1440v560H0z'/%3E%3Cpath d='M1488 560H0V317.48q58.23-13.77 72 44.45 65.21-54.79 120 10.42 20.03-51.97 72-31.94 8.29-63.71 72-55.43 71.29-48.71 120 22.59 84.82-35.19 120 49.63 18.54-53.46 72-34.93 23.16-48.84 72-25.68 54.46-17.54 72 36.93 52.58-67.42 120-14.85 62.58-9.42 72 53.16 53.49-66.51 120-13.02 48.12-71.88 120-23.76 21.96-50.04 72-28.07 42.34-29.66 72 12.68 88.61-31.4 120 57.21z' fill='rgba(167, 128, 55, 1)'/%3E%3Cpath d='M1512 560H0V392.87q21.26-50.74 72-29.47 81.38-38.62 120 42.76 70-50 120 20 46.77-25.23 72 21.54 43.03-76.97 120-33.95 70.54-49.46 120 21.09 43.29-76.71 120-33.42 47.03-72.97 120-25.94 63.78-8.22 72 55.56 14.95-57.04 72-42.09 47.2-72.8 120-25.59 61.36-10.64 72 50.72 76.17-43.83 120 32.35 30.17-41.83 72-11.66 27.36-92.64 120-65.28z' fill='rgba(202, 164, 93, 1)'/%3E%3Cpath d='M1536 560H0v-71.07q31.86-88.14 120-56.28 47.83-24.17 72 23.66 79.05-40.95 120 38.1 67.92-52.08 120 15.84 17.35-54.65 72-37.3 47.48-72.53 120-25.05 63.48-8.52 72 54.96 41.04-30.96 72 10.08 12.06-59.94 72-47.88 38-82 120-44.01 51.45-20.55 72 30.9 85.52-34.48 120 51.03 3.5-68.49 72-64.99 53.69-66.3 120-12.61 68.94-3.06 72 65.88 33.41-86.59 120-53.17z' fill='rgba(215, 187, 133, 1)'/%3E%3Cpath d='M1560 560H0v-60.1q54.53-17.47 72 37.06 66.26-53.74 120 12.52 10.45-61.55 72-51.09 69.09-50.91 120 18.18 42.09-29.91 72 12.19 58.38-13.63 72 44.75 26.3-45.7 72-19.4 40.98-79.02 120-38.04 29.03-42.96 72-13.93 62.28-9.72 72 52.57 20.43-51.57 72-31.13 22.19-49.81 72-27.62 81.37-38.63 120 42.74 45.38-74.62 120-29.25 57.99-14.01 72 43.98 71.24-48.76 120 22.49 27.45-92.54 120-65.09z' fill='%23fff'/%3E%3C/g%3E%3Cdefs%3E%3Cmask id='a'%3E%3Cpath fill='%23fff' d='M0 0h1440v560H0z'/%3E%3C/mask%3E%3C/defs%3E%3C/svg%3E");
+    background-position: bottom 0px center;
+    background-color: #a78038;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 330px;
+    padding: 65px 15px 150px;
+  }
+}
+
+@media (min-width: 993px) {
+  .ratings-banner {
+    padding: 80px 15px;
+  }
+}
+
+.ratings-stars {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.ratings-content {
+  text-align: center;
+  font-size: 20px;
+  line-height: 26px;
+  color: #242424;
+
+  .ratings-banner.w-background & > p {
+    color: #fff;
+  }
+}
+
+@media (min-width: 993px) {
+  .ratings-content {
+    font-size: 24px;
+    line-height: 30px;
+  }
+}
+
+.ratings-content p {
+  margin-bottom: 0;
+}
+
+.ratings-star-icon {
+  width: 30px;
+  height: 30px;
+}
+
+.ratings-star-icon::before {
+  content: "";
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z' fill='%23caa45d' /%3E%3C/svg%3E");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: block;
+  width: 30px;
+  height: 30px;
+
+  .ratings-banner.w-background & {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z' fill='%23ffffff' /%3E%3C/svg%3E");
+  }
+}
+
+.ratings-image img {
+  max-width: 360px;
+  margin: 0 auto 25px;
+  display: block;
+  width: 100%;
+}
+
+.ratings-banner .btn-outline {
+  border-color: #caa45d;
+  border-width: 2px;
+  color: #222;
+  margin-top: 32px;
+
+  &:hover {
+    background-color: #caa45d;
+    border-color: #caa45d;
+    color: #fff;
+  }
+}
+
+.ratings-banner.w-background .btn-outline {
+  border-color: #fff;
+  color: #fff;
+
+  &:hover {
+    background-color: #fff;
+    border-color: #fff;
+    color: #222;
+  }
+}

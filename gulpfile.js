@@ -19,7 +19,7 @@ const files = {
 
 // Sass task: compiles the style.scss file into style.css
 function scssTask() {
-  return src(files.scssPath, { sourcemaps: true }) // set source and turn on sourcemaps
+  return src(files.scssPath, { sourcemaps: false }) // set source and turn on sourcemaps
     .pipe(sass()) // compile SCSS to CSS
     .pipe(postcss([autoprefixer(), cssnano()])) // PostCSS plugins
     .pipe(dest('dist', { sourcemaps: '.' })); // put final CSS in dist folder with sourcemap
@@ -32,7 +32,7 @@ function jsTask() {
       files.jsPath,
       //,'!' + 'includes/js/jquery.min.js', // to exclude any specific files
     ],
-    { sourcemaps: true }
+    { sourcemaps: false }
   )
     .pipe(concat('main.js'))
     .pipe(terser())

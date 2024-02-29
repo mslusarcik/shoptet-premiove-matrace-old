@@ -1,0 +1,17 @@
+.has-gift .p-image-wrapper .p-gift-image {
+  position: absolute;
+  width: 72px;
+  bottom: 88px;
+  right: 20px;
+  @media (min-width: $breakpoint-md) {
+    width: 85px;
+    bottom: 145px;
+    right: 28px;
+  }
+}
+
+@media (max-width: 768px) {
+  #formProductQuestion .form-group.consents {
+    bottom: -55px
+  }
+}

@@ -1,0 +1,46 @@
+.cube {
+
+  &.collapsed {
+    display: none !important;
+
+    &.in {
+      display: block !important;
+    }
+
+    &.fake.in {
+      display: flex !important;
+    }
+  }
+}
+
+.hidden-variants {
+  display: flex;
+  width: 100%;
+
+  &.collapsed {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+
+    &.in {
+      height: auto;
+      width: auto;
+      visibility: visible;
+    }
+  }
+}
+
+.cubes {
+  .cube.fake {
+    background-color: #C1A56A;
+    border-color: #C1A56A;
+    display: flex;
+    align-items: center;
+
+    .cube-heading {
+      color: #fff;
+      font-size: 13px;
+      line-height: 17px;
+    }
+  }
+}

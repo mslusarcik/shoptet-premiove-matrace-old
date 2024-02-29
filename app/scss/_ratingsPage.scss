@@ -1,0 +1,33 @@
+body.in-hodnoceni-obchodu {
+  main {
+    .ratings-banner {
+      margin-bottom: 24px;
+      @media (min-width: $breakpoint-md) {
+        margin-bottom: 60px;
+      }
+      @media (max-width: $breakpoint-md) {
+        margin-left: -10px;
+        margin-right: -10px;
+        width: 104%;
+        width: calc(100% + 20px);
+        max-width: unset;
+      }
+    }
+    .content-inner {
+      & > h1 {
+        margin-bottom: 8px !important;
+        & + p {
+          text-align: center;
+          @media (min-width: $breakpoint-md) {
+            text-align: left;
+          }
+        }
+      }
+    }
+  }
+  .container.breadcrumbs-wrapper {
+    @media (max-width: $breakpoint-md) {
+      margin-bottom: 0;
+    }
+  }
+}
