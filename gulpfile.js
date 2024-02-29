@@ -99,3 +99,5 @@ exports.default = series(parallel(scssTask, jsTask), cacheBustTask, watchTask);
 // Runs all of the above but also spins up a local Browsersync server
 // Run by typing in "gulp bs" on the command line
 exports.bs = series(parallel(scssTask, jsTask), cacheBustTask, browserSyncServe, bsWatchTask);
+
+exports.build = series(parallel(scssTask, jsTask));

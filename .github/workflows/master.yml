@@ -1,0 +1,36 @@
+name: Build and Deploy
+
+'on':
+  push:
+    branches: master
+
+jobs:
+  build-and-deploy:
+    name: Deploy to productional FTP
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install Project Dependencies
+        run: npm ci
+
+      - name: Build
+        run: gulp build
+
+      - name: Verify build
+        run: ls -la dist
+
+      - name: 'Sync files'
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: 90306.w6.wedos.net
+          username: '${{ secrets.ftp_username }}'
+          password: '${{ secrets.ftp_password }}'
+          server-dir: /www/domains/assets.slusarcik.cz/premiove-matrace/
+          local-dir: ./dist/
