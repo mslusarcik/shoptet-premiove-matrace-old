@@ -202,7 +202,17 @@ function handleFaqs() {
   });
 }
 
+function handleCookieBar() {
+  var cookiesButtonWrapper = jQuery('.siteCookies__buttonWrap');
+  if (jQuery(cookiesButtonWrapper)[0]) {
+    jQuery('.siteCookies__links').append(cookiesButtonWrapper);
+    jQuery(cookiesButtonWrapper).css('display', 'flex');
+  }
+}
+
 $(function () {
+  handleCookieBar();
+
   if (jQuery('body').hasClass('type-index')) {
     addHeadlineForFavCats();
     unSlick(jQuery('.fav-cat ul'));
